@@ -9,7 +9,7 @@ app = FastAPI(title='StudyShelf API')
 # cors allow react frontend to talk to this api, even though its bydefault not allowed to talk to stuff on same network
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://localhost:5173"],
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"], # allows get, post, put, delete etc
     allow_headers=["*"] # allow any headers
