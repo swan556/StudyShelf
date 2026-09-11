@@ -52,58 +52,56 @@ function AddResourceForm({ onResourceAdded }) {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
-        <h2>Add Resource</h2>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <h2 style={{ marginBottom: "1.5rem" }}>Add a New Resource</h2>
+        {error && <p style={{ background: "rgba(220, 38, 38, 0.1)", color: "#dc2626", padding: "0.75rem", borderRadius: "6px", marginBottom: "1rem" }}>{error}</p>}
 
-        <div style={{ marginBottom: "0.5rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
           <input
             type="text"
-            placeholder="title"
+            placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            style={{ width: "100%", padding: "0.5rem" }}
+            style={{ width: "100%" }}
           />
-        </div>
-        <div style={{ marginBottom: "0.5rem" }}>
           <input
             type="url"
-            placeholder="url"
+            placeholder="URL"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            style={{ width: "100%", padding: "0.5rem" }}
+            style={{ width: "100%" }}
           />
         </div>
-        <div style={{ marginBottom: "0.5rem" }}>
+        
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
           <input
             type="text"
-            placeholder="category"
+            placeholder="Category (e.g., Frontend)"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            style={{ width: "100%", padding: "0.5rem" }}
+            style={{ width: "100%" }}
           />
-        </div>
-        <div style={{ marginBottom: "0.5rem" }}>
           <input
             type="text"
-            placeholder="tags (comma separated)"
+            placeholder="Tags (comma separated)"
             value={tagsInput}
             onChange={(e) => setTagsInput(e.target.value)}
-            style={{ width: "100%", padding: "0.5rem" }}
+            style={{ width: "100%" }}
           />
         </div>
-        <div style={{ marginBottom: "0.5rem" }}>
+        
+        <div style={{ marginBottom: "1.5rem" }}>
           <textarea
-            placeholder="Description"
+            placeholder="Brief description of this resource..."
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows={3}
-            style={{ width: "100%", padding: "0.5rem" }}
+            style={{ width: "100%", resize: "vertical" }}
           />
         </div>
 
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Adding..." : "Add Resource"}
+        <button type="submit" disabled={isSubmitting} style={{ width: "100%", justifyContent: "center" }}>
+          {isSubmitting ? "Adding Resource..." : "Save Resource"}
         </button>
       </form>
     </div>

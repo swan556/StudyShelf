@@ -4,7 +4,7 @@ import { fetchResourceByID } from "../api";
 import { useEffect, useState } from "react";
 
 function DetailPage() {
-  const { id } = useParams(); // to get id from the url
+  const { id } = useParams();
   const navigate = useNavigate();
   const [resource, setResource] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -38,12 +38,23 @@ function DetailPage() {
   }, [id]);
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)} style={{ marginBottom: "1rem" }}>
-        Back
+    <div className="animate-in">
+      <button className="secondary" onClick={() => navigate(-1)} style={{ marginBottom: "2rem" }}>
+        ← Back to Resources
       </button>
-      {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+      
+      {loading && (
+        <div style={{ textAlign: "center", padding: "3rem", color: "var(--text-secondary)" }}>
+          <p>Loading details...</p>
+        </div>
+      )}
+      
+      {error && (
+        <div style={{ background: "rgba(220, 38, 38, 0.1)", border: "1px solid rgba(220, 38, 38, 0.5)", color: "#dc2626", padding: "1rem", borderRadius: "var(--radius-sm)" }}>
+          <strong>Error: </strong> {error}
+        </div>
+      )}
+      
       {!loading && !error && <ResourceDetail resource={resource} />}
     </div>
   );

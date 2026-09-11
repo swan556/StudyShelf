@@ -4,29 +4,30 @@ import DetailPage from "./pages/DetailPage";
 
 function App() {
   return (
-    <div>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <BrowserRouter>
-        <nav
-          style={{
-            padding: "1rem",
-            borderBottom: "1px solid #ddd",
-            marginBottom: "1rem",
-          }}
-        >
+        <nav className="navbar">
           <Link
             to="/"
             style={{
-              fontSize: "1.2rem",
-              fontWeight: "bold",
+              fontSize: "1.5rem",
+              fontWeight: "700",
               textDecoration: "none",
+              background: "linear-gradient(90deg, var(--accent-primary), #a855f7)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             StudyShelf
           </Link>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <Link to="/" style={{ fontWeight: "500" }}>Home</Link>
+          </div>
         </nav>
 
         <main
-          style={{ maxWidth: "800px", margin: "0 auto", padding: "0 1rem" }}
+          style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem", width: "100%", flex: 1 }}
+          className="animate-in"
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
