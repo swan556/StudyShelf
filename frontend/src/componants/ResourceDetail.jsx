@@ -1,3 +1,5 @@
+import GithubMetadata from "./GithubMetadata";
+
 function ResourceDetail({ resource }) {
   if (!resource) return null;
 
@@ -21,8 +23,9 @@ function ResourceDetail({ resource }) {
       </p>
       <p>{resource.favorite ? "⭐" : "☆"}</p>
       <p style={{ fontSize: "0.85rem", color: "#666" }}>
-        Created: {new Date(resource.created_at).toLocaleString}
+        Created: {new Date(resource.created_at).toLocaleString()}
       </p>
+      <GithubMetadata url={resource.url} />
     </div>
   );
 }
