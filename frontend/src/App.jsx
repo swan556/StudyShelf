@@ -13,7 +13,7 @@ function App() {
               fontSize: "1.5rem",
               fontWeight: "700",
               textDecoration: "none",
-              background: "linear-gradient(90deg, var(--accent-primary), #a855f7)",
+              background: "linear-gradient(90deg, var(--accent-primary), #34d399)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
