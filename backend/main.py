@@ -17,3 +17,7 @@ app.add_middleware(
 )
 
 app.include_router(resources.router)
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the StudyShelf API! Visit /docs for the API documentation."}
